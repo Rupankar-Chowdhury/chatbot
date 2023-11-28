@@ -16,8 +16,23 @@
             <span>For Your Future</span>
         </marquee>
     </div>
-    
+
     <div class="chat-container" id="chat-container">
+        <div class="chat-header">
+            <div class="header-controls">
+                <div class="control-box">
+                    <button class="control-button" id="minimize-button">-</button>
+                </div>
+                <div class="control-box">
+                    <button class="control-button" id="maximize-button">+</button>
+                </div>
+                <div class="control-box">
+                    <button class="control-button" id="close-button">&#10006;</button>
+                </div>
+            </div>
+            <img src="{{ url_for('static', filename='img/avatar.png') }}" alt="Avatar Icon" class="avatar">
+            <span class="genie-title">Insurance Genie</span>
+        </div>
         <div id="chat-messages" class="chat-messages"></div>
         <div class="chat-input">
             <input type="text" id="user-input" placeholder="Type your message...">
