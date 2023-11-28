@@ -1,4 +1,3 @@
-
 body {
     background-color: #ffe0bd; /* Light skin color */
     margin: 0; /* Reset default body margin */
@@ -37,59 +36,92 @@ body::before {
 }
 
 .header {
-    background-color: #7c909e; /* Header background color */
+    background-color: #6290a5; /* Header background color */
     color: #fff; /* Text color */
     padding: 10px;
     text-align: center;
+    position: relative;
 }
 
 .chat-messages {
-    max-height: 300px; /* Limit the height and enable scrolling */
+    max-height: 300px;
     overflow-y: auto;
     padding: 10px;
+    display: flex; /* Use flex container */
+    flex-direction: column; /* Set the column direction for normal display */
 }
 
 .message {
     margin-bottom: 10px;
     padding: 8px 12px;
     border-radius: 8px;
+    align-self: flex-start; /* Align Genie's messages to the left */
+    max-width: 70%; /* Limit the width of the message */
 }
 
 .user-message {
-    background-color: #3498db; /* User's message background color */
-    color: #ffffff; /* User's message text color */
+    background-color: #3498db;
+    color: #ffffff;
+    align-self: flex-end; /* Align user's messages to the right */
 }
 
 .bot-message {
+    display: flex;
+    align-items: flex-start; /* Align bot's messages to the left */
+}
+
+.bot-message img {
+    width: 30px; /* Adjust the width of the bot icon */
+    height: 30px; /* Adjust the height of the bot icon */
+    border-radius: 50%; /* Make the bot icon circular */
+    margin-right: 10px; /* Adjust margin as needed */
+}
+
+.bot-message .message-text {
+    position: relative;
     background-color: #e77a6e; /* Bot's message background color */
     color: #ffffff; /* Bot's message text color */
+    border-radius: 15px; /* Rounded corners for bot's message */
+    padding: 10px;
+    max-width: 70%; /* Limit the width of the message */
+}
+
+/* Adjust padding and margin for bubble messages */
+.user-message, .bot-message {
+    padding: 10px;
+    margin-right: 10px; /* Adjust margin between bubbles as needed */
+    max-width: 70%; /* Limit message width to 70% of the container */
 }
 
 .chat-input {
-    display: flex; /* Use flexbox to align items */
-    justify-content: space-between; /* Distribute space evenly */
+    display: flex;
+    align-items: flex-end;
     padding: 10px;
     border-top: 1px solid #ccc;
+    box-sizing: border-box;
 }
 
 #user-input {
-    width: 70%;
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    word-wrap: break-word; /* Allow long words to break and wrap to the next line */
+    flex: 1;
+    width: 0; /* Allow the input to grow and fill available space */
+    padding: 10px;
+    border: none;
+    border-bottom: 2px solid #3498db;
+    outline: none;
+    box-sizing: border-box;
 }
 
 #send-button {
-    width: 28%;
-    padding: 8px;
-    background-color: #4CAF50;
+    width: auto; /* Let the button size itself based on content */
+    padding: 10px;
+    background-color: #3498db;
     color: #fff;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    margin-left: 10px; /* Add some margin between input and button */
+    box-sizing: border-box;
 }
-
 
 .chat-button {
     position: fixed;
@@ -114,12 +146,13 @@ body::before {
 }
 
 #chat-messages {
-    background: url('/static/img/chatboxb.jpg') center center;
-    background-size: cover;
+    /* background: url('/static/img/chatboxb.jpg') center center; */
+    background-color: rgb(188, 191, 202); /* Replace with your desired light color */
     padding: 20px;
-    border-radius: 10px;
+    border-radius: 0px; /* Set border-radius to 0 for a square shape */
     max-height: 300px; /* Adjust the height as needed */
     overflow-y: auto;
+    box-sizing: border-box;
 }
 
 /* Style the suggestion boxes */
@@ -137,4 +170,55 @@ body::before {
 
 #chat-messages button:hover {
     background-color: #297fb8; /* Adjust the hover color as needed */
+}
+
+/* Add styles for the chat header */
+.chat-header {
+    background-color: #76aed3; /* Light blue background color */
+    color: #0b0b0b; /* Text color */
+    padding: 10px;
+    text-align: center;
+    border-top-left-radius: 10px; /* Rounded corners for the top-left */
+    border-top-right-radius: 10px; /* Rounded corners for the top-right */
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+.avatar {
+    width: 40px; /* Adjust the width as needed */
+    height: 40px; /* Adjust the height as needed */
+    border-radius: 50%; /* Rounded corners for a circular shape */
+    margin-right: 10px;
+}
+
+.genie-title {
+    font-size: 1.5em; /* Adjust the font size as needed */
+}
+
+.header-controls {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.control-button {
+    background-color: transparent;
+    border: none;
+    font-size: 1.5em;
+    margin-right: 10px;
+    cursor: pointer;
+    color: #070707; /* Adjust color as needed */
+}
+
+
+
+.chat-container.maximized {
+    width: 80%;
+    height: 80vh;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: none;
+    border-radius: 10px;
 }
